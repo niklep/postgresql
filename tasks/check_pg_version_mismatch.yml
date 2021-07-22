@@ -5,7 +5,7 @@
   shell: >
     psql --version | sed 's/^psql (//' | sed 's/)//' | awk '{print $1, $2}'
   become: yes
-  become_user: "{{ postgresql_service_user }}"
+  #become_user: "{{ postgresql_service_user }}"
   changed_when: false
   failed_when: postgresql_binary_version.stdout == ""
   register: postgresql_binary_version

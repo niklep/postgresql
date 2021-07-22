@@ -784,3 +784,11 @@ include_dir = '{{ postgresql_include_dir }}'                    # include files 
 #------------------------------------------------------------------------------
 
 # Add settings for extensions here
+
+{% if postgresql_extra_conf is defined %}
+{% for pair in postgresql_extra_conf -%}
+{% for key in pair -%}
+{{ key }} = {{ pair[key] }}
+{% endfor %}
+{% endfor %}
+{% endif %}
